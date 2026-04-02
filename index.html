@@ -5,8 +5,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Choudhary Rafal Singh Educational Trust — Haridwar, Uttarakhand</title>
 <meta name="description" content="Serving communities through Education, Healthcare, Water & Environment. Based in Village Tejjupur, Haridwar, Uttarakhand."/>
+<!-- Preload critical resources -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" as="style"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<!-- Critical CSS for immediate styling -->
+<style>
+/* Critical styles to prevent flash of unstyled content */
+body{font-family:'Outfit',sans-serif;background:#FAF7F0 !important;color:#2C1F0F !important;margin:0;padding:0;overflow-x:hidden;}
+#cursor,#cursor-ring{display:none !important;}
+</style>
 <style>
 /* ===================================================
    ROOT & RESET
@@ -22,7 +33,23 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;font-size:16px;}
-body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+body{font-family:'Outfit',sans-serif;background:#FAF7F0;background:var(--cream);color:#2C1F0F;color:var(--text);overflow-x:hidden;}
+/* Fallback for loading issues */
+body{background-color:#FAF7F0 !important;color:#2C1F0F !important;}
+/* Ensure sections have proper backgrounds */
+.hero, .patron-section, .about-section, .leadership-section, .work-section, .impact-section, .goals-section, .testi-section, .timeline-section, .gallery-section, .involve-section, .contact-section, footer{
+  background-color: inherit !important;
+}
+/* Mobile fixes */
+@media(max-width:768px){
+  body{background-color:#FAF7F0 !important;}
+  #cursor,#cursor-ring{display:none !important;}
+}
+/* Hosting environment fixes */
+html, body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 ::selection{background:var(--saffron);color:#fff;}
 
 /* ===================================================
@@ -266,8 +293,8 @@ body.hovering #cursor-ring{width:50px;height:50px;opacity:.3;}
 .lcard{background:var(--cream);border:1px solid var(--border);border-radius:20px;overflow:hidden;text-align:center;transition:all .35s;position:relative;}
 .lcard:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.1);border-color:transparent;}
 .lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--saffron),var(--gold),var(--green));}
-.lcard-photo{aspect-ratio:1;position:relative;overflow:hidden;}
-.lcard-pholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:2rem;}
+.lcard-photo{padding:2rem 2rem 0;display:flex;justify-content:center;align-items:center;}
+.lcard-photo img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.15);}
 .lcard-pholder.chair{background:linear-gradient(145deg,#FDF0E6,#FEF6E0);}
 .lcard-pholder.sec{background:linear-gradient(145deg,#EBF4E3,#E8F2E0);}
 .lcard-pholder.tre{background:linear-gradient(145deg,#FEF6E0,#FDF0E6);}
@@ -276,7 +303,7 @@ body.hovering #cursor-ring{width:50px;height:50px;opacity:.3;}
 .l-av.sec{background:linear-gradient(135deg,var(--green),var(--green-m));}
 .l-av.tre{background:linear-gradient(135deg,var(--gold),#E8A030);}
 .lcard-pholder small{font-size:.68rem;color:var(--muted);font-style:italic;}
-.lcard-info{padding:1.4rem 1.5rem 2rem;}
+.lcard-info{padding:1rem 1.5rem 1.5rem;}
 .l-role{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;margin-bottom:.7rem;}
 .l-role.chair{color:var(--saffron);background:var(--saffron-pale);}
 .l-role.sec{color:var(--green-m);background:var(--green-pale);}
@@ -769,45 +796,64 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:5rem 0 0;}
     </div>
   </div>
 </div>
-
 <!-- =================== PATRON =================== -->
 <section class="patron-section" id="patron">
   <div class="patron-bg-text">RAFAL</div>
+
   <div class="container">
     <div class="patron-inner">
+
       <div class="patron-image-wrap rv-l">
         <div class="patron-frame">
-          <div class="patron-pholder">
-            <div class="patron-av"><i class="fas fa-user"></i></div>
-            <p>Portrait of<br/>Choudhary Rafal Singh Ji<br/><br/><em style="font-size:.72rem;opacity:.5;">Place photo here</em></p>
-          </div>
+
+          <!-- IMAGE ADDED HERE -->
+          <img src="images/rafal-singh.jpg"
+               alt="Choudhary Rafal Singh Ji"
+               style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+
           <div class="patron-stamp">✦ In His Honour ✦</div>
+
         </div>
+
         <div class="corner-tl"></div>
         <div class="corner-br"></div>
       </div>
 
+
       <div class="patron-content rv-r">
-        <span class="s-tag"><i class="fas fa-star"></i> Inspiration &amp; Legacy</span>
-        <div class="patron-name">Choudhary<br/>Rafal Singh Ji</div>
-        <p class="patron-role">Founding Inspiration · Haridwar, Uttarakhand</p>
+        <span class="s-tag"><i class="fas fa-star"></i> Inspiration & Legacy</span>
+
+        <div class="patron-name">
+          Choudhary<br/>Rafal Singh Ji
+        </div>
+
+        <p class="patron-role">
+          Founding Inspiration · Haridwar, Uttarakhand
+        </p>
+
         <div class="divider"></div>
+
         <p class="s-sub">
           This trust stands as a living tribute to the vision and values of
-          <strong style="color:rgba(255,255,255,.9)">Choudhary Rafal Singh Ji</strong> — a man whose
-          lifelong dedication to community, compassion, and justice planted the seeds of
-          transformation across generations. His spirit lives in every child we educate,
-          every family we heal, every well we dig.
+          <strong style="color:rgba(255,255,255,.9)">
+          Choudhary Rafal Singh Ji
+          </strong>
+          — a man whose lifelong dedication to community, compassion, and justice
+          planted the seeds of transformation across generations. His spirit lives
+          in every child we educate, every family we heal, every well we dig.
         </p>
+
         <blockquote class="patron-quote">
           "Serve the many, uplift the few, and leave the world better than
           you found it — that is the only legacy worth leaving."
         </blockquote>
+
         <p class="s-sub">
           His belief that every child deserves an education, every family deserves
-          clean water, and every community deserves dignity lives on through the work
-          we do each day.
+          clean water, and every community deserves dignity lives on through the
+          work we do each day.
         </p>
+
         <div class="patron-tags">
           <span class="ptag"><i class="fas fa-book"></i> Knowledge</span>
           <span class="ptag"><i class="fas fa-hands-helping"></i> Compassion</span>
@@ -816,11 +862,12 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:5rem 0 0;}
           <span class="ptag"><i class="fas fa-users"></i> Community</span>
           <span class="ptag"><i class="fas fa-heart"></i> Seva</span>
         </div>
+
       </div>
+
     </div>
   </div>
 </section>
-
 <!-- =================== ABOUT =================== -->
 <section class="about-section" id="about">
   <div class="container">
@@ -893,6 +940,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:5rem 0 0;}
 <!-- =================== LEADERSHIP =================== -->
 <section class="leader-section" id="leadership">
   <div class="container">
+
     <div class="leader-head rv">
       <span class="s-tag"><i class="fas fa-users"></i> Leadership</span>
       <h2 class="s-title">Guided by Dedicated Hands</h2>
@@ -902,20 +950,26 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:5rem 0 0;}
         and an unwavering commitment to the values this trust was built upon.
       </p>
     </div>
+
     <div class="leader-grid">
 
       <!-- CHAIRMAN -->
       <div class="lcard rv">
         <div class="lcard-photo">
-          <div class="lcard-pholder chair">
-            <div class="l-av chair"><i class="fas fa-user-tie"></i></div>
-            <small>Place Chairman's photo here</small>
-          </div>
+          <img src="images/chairman.jpg" alt="Ashok Choudhary"
+          style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid #c9a227;">
         </div>
+
         <div class="lcard-info">
           <span class="l-role chair">Chairman</span>
           <div class="l-name">Ashok Choudhary</div>
-          <p class="l-desc">Spearheading the trust's vision with steadfast leadership and deep commitment to community development across Haridwar district. Guiding every decision with wisdom and care.</p>
+
+          <p class="l-desc">
+            Spearheading the trust's vision with steadfast leadership and deep commitment
+            to community development across Haridwar district. Guiding every decision
+            with wisdom and care.
+          </p>
+
           <div class="l-socials">
             <a href="tel:+919058090009" class="l-soc"><i class="fas fa-phone"></i></a>
             <a href="#" class="l-soc"><i class="fas fa-envelope"></i></a>
@@ -923,19 +977,25 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:5rem 0 0;}
           </div>
         </div>
       </div>
+
 
       <!-- SECRETARY -->
       <div class="lcard rv">
         <div class="lcard-photo">
-          <div class="lcard-pholder sec">
-            <div class="l-av sec"><i class="fas fa-user"></i></div>
-            <small>Place Secretary's photo here</small>
-          </div>
+          <img src="images/secretary.jpg" alt="Diwakar Choudhary"
+          style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid #c9a227;">
         </div>
+
         <div class="lcard-info">
           <span class="l-role sec">Secretary</span>
           <div class="l-name">Diwakar Choudhary</div>
-          <p class="l-desc">Managing operations, outreach and partnerships while ensuring every initiative stays aligned with the trust's founding mission. A tireless advocate for communities in need.</p>
+
+          <p class="l-desc">
+            Managing operations, outreach and partnerships while ensuring every
+            initiative stays aligned with the trust's founding mission.
+            A tireless advocate for communities in need.
+          </p>
+
           <div class="l-socials">
             <a href="tel:+919058090009" class="l-soc"><i class="fas fa-phone"></i></a>
             <a href="#" class="l-soc"><i class="fas fa-envelope"></i></a>
@@ -944,18 +1004,24 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:5rem 0 0;}
         </div>
       </div>
 
+
       <!-- TREASURER -->
       <div class="lcard rv">
         <div class="lcard-photo">
-          <div class="lcard-pholder tre">
-            <div class="l-av tre"><i class="fas fa-user"></i></div>
-            <small>Place Treasurer's photo here</small>
-          </div>
+          <img src="images/treasurer.jpg" alt="Sangeeta Choudhary"
+          style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid #c9a227;">
         </div>
+
         <div class="lcard-info">
           <span class="l-role tre">Treasurer</span>
           <div class="l-name">Sangeeta Choudhary</div>
-          <p class="l-desc">Ensuring financial integrity, transparency, and responsible stewardship of every rupee entrusted to the trust. Her meticulous oversight keeps our work accountable to donors.</p>
+
+          <p class="l-desc">
+            Ensuring financial integrity, transparency, and responsible stewardship
+            of every rupee entrusted to the trust. Her meticulous oversight keeps
+            our work accountable to donors.
+          </p>
+
           <div class="l-socials">
             <a href="tel:+919058090009" class="l-soc"><i class="fas fa-phone"></i></a>
             <a href="#" class="l-soc"><i class="fas fa-envelope"></i></a>
@@ -989,52 +1055,147 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:5rem 0 0;}
     </div>
 
     <!-- EDU -->
-    <div class="w-tab-pane active" id="tab-edu">
-      <div class="w-pane-img">
-        <div class="w-pane-pholder edu-bg"><i class="fas fa-graduation-cap"></i><span>Education programs gallery</span></div>
+<div class="w-tab-pane active" id="tab-edu">
+
+  <div class="w-pane-img">
+    <!-- IMAGE ADDED -->
+    <img src="images/education.jpg"
+         alt="Education Programs"
+         style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+  </div>
+
+  <div>
+    <span class="s-tag"><i class="fas fa-graduation-cap"></i> Education Programs</span>
+
+    <h3 class="s-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">
+      Opening Doors<br/>Through Learning
+    </h3>
+
+    <div class="divider"></div>
+
+    <p class="s-sub">
+      We believe education is the most powerful tool for breaking cycles of poverty.
+      Our programs reach children who would otherwise have no access to quality learning.
+    </p>
+
+    <div class="w-proj-grid">
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--gold)">450+</div>
+        <p>Scholarships awarded to deserving students</p>
       </div>
-      <div>
-        <span class="s-tag"><i class="fas fa-graduation-cap"></i> Education Programs</span>
-        <h3 class="s-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">Opening Doors<br/>Through Learning</h3>
-        <div class="divider"></div>
-        <p class="s-sub">We believe education is the most powerful tool for breaking cycles of poverty. Our programs reach children who would otherwise have no access to quality learning.</p>
-        <div class="w-proj-grid">
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--gold)">450+</div><p>Scholarships awarded to deserving students</p></div>
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--gold)">12</div><p>Schools supported with resources &amp; infrastructure</p></div>
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--gold)">2,000+</div><p>Books &amp; educational materials distributed</p></div>
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--gold)">8</div><p>Computer &amp; digital literacy centers opened</p></div>
-        </div>
-        <div class="w-progress-wrap">
-          <div class="w-progress-label"><span>Annual Scholarship Goal</span><span>78% funded</span></div>
-          <div class="w-progress-bar"><div class="w-progress-fill" data-width="78" style="width:0%"></div></div>
-        </div>
-        <div style="margin-top:1.5rem;"><a href="#involve" class="btn btn-primary"><i class="fas fa-heart"></i> Fund a Scholarship</a></div>
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--gold)">12</div>
+        <p>Schools supported with resources & infrastructure</p>
+      </div>
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--gold)">2,000+</div>
+        <p>Books & educational materials distributed</p>
+      </div>
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--gold)">8</div>
+        <p>Computer & digital literacy centers opened</p>
+      </div>
+
+    </div>
+
+    <div class="w-progress-wrap">
+      <div class="w-progress-label">
+        <span>Annual Scholarship Goal</span>
+        <span>78% funded</span>
+      </div>
+
+      <div class="w-progress-bar">
+        <div class="w-progress-fill" data-width="78" style="width:0%"></div>
       </div>
     </div>
 
-    <!-- HEALTH -->
-    <div class="w-tab-pane" id="tab-health">
-      <div class="w-pane-img">
-        <div class="w-pane-pholder health-bg"><i class="fas fa-heartbeat"></i><span>Healthcare camps gallery</span></div>
-      </div>
-      <div>
-        <span class="s-tag"><i class="fas fa-hand-holding-medical"></i> Healthcare</span>
-        <h3 class="s-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">Healing Hearts,<br/>Saving Lives</h3>
-        <div class="divider"></div>
-        <p class="s-sub">Access to basic healthcare remains a challenge for many in rural Haridwar. We bridge this gap through free medical camps, awareness drives, and patient support programs.</p>
-        <div class="w-proj-grid">
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--saffron)">45</div><p>Free medical camps conducted annually</p></div>
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--saffron)">3,200+</div><p>Patients treated across all programs</p></div>
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--saffron)">20</div><p>Health awareness drives in schools</p></div>
-          <div class="w-proj"><div class="w-proj-num" style="color:var(--saffron)">100+</div><p>Families supported with hospital costs</p></div>
-        </div>
-        <div class="w-progress-wrap">
-          <div class="w-progress-label"><span>Medical Camp Fund</span><span>62% funded</span></div>
-          <div class="w-progress-bar"><div class="w-progress-fill" data-width="62" style="width:0%;background:linear-gradient(90deg,var(--saffron),var(--saffron-l))"></div></div>
-        </div>
-        <div style="margin-top:1.5rem;"><a href="#involve" class="btn btn-primary"><i class="fas fa-heart"></i> Support Healthcare</a></div>
-      </div>
+    <div style="margin-top:1.5rem;">
+      <a href="#involve" class="btn btn-primary">
+        <i class="fas fa-heart"></i> Fund a Scholarship
+      </a>
     </div>
+
+  </div>
+
+</div>
+  <!-- HEALTH -->
+<div class="w-tab-pane" id="tab-health">
+
+  <div class="w-pane-img">
+    <!-- IMAGE ADDED -->
+    <img src="images/healthcare.jpg"
+         alt="Healthcare Camps"
+         style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+  </div>
+
+  <div>
+    <span class="s-tag"><i class="fas fa-hand-holding-medical"></i> Healthcare</span>
+
+    <h3 class="s-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">
+      Healing Hearts,<br/>Saving Lives
+    </h3>
+
+    <div class="divider"></div>
+
+    <p class="s-sub">
+      Access to basic healthcare remains a challenge for many in rural Haridwar.
+      We bridge this gap through free medical camps, awareness drives, and
+      patient support programs.
+    </p>
+
+    <div class="w-proj-grid">
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--saffron)">45</div>
+        <p>Free medical camps conducted annually</p>
+      </div>
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--saffron)">3,200+</div>
+        <p>Patients treated across all programs</p>
+      </div>
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--saffron)">20</div>
+        <p>Health awareness drives in schools</p>
+      </div>
+
+      <div class="w-proj">
+        <div class="w-proj-num" style="color:var(--saffron)">100+</div>
+        <p>Families supported with hospital costs</p>
+      </div>
+
+    </div>
+
+    <div class="w-progress-wrap">
+
+      <div class="w-progress-label">
+        <span>Medical Camp Fund</span>
+        <span>62% funded</span>
+      </div>
+
+      <div class="w-progress-bar">
+        <div class="w-progress-fill"
+             data-width="62"
+             style="width:0%; background:linear-gradient(90deg,var(--saffron),var(--saffron-l))">
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:1.5rem;">
+      <a href="#involve" class="btn btn-primary">
+        <i class="fas fa-heart"></i> Support Healthcare
+      </a>
+    </div>
+
+  </div>
+
+</div>
 
     <!-- WATER -->
     <div class="w-tab-pane" id="tab-water">
